@@ -1,0 +1,27 @@
+nome: banho e tosa
+custo: 55.00
+tempo: 3 horas
+=====
+nome: Odontologia Animal
+Custo: 120.00
+Tempo: 1 hora
+=====
+nome: Banho
+custo: 12
+tempo: 1
+=====
+nome: s1
+custo: 1
+tempo: 1
+=====
+nome: teste
+custo: 12
+tempo: 2 min
+nome: Tosa
+custo: 30
+tempo: 15 min
+=====
+nome: Escova
+custo: 30
+tempo: 12 min
+=====

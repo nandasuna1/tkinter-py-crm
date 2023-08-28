@@ -1,0 +1,25 @@
+nome: Fernanda
+email: teste1@gm.com
+cpf: 12312312313
+senha: senha12
+=====
+nome: Mariana
+email: teste2@gm.com
+cpf: 23423423423
+senha: senha123
+=====
+nome: nanda
+email: teste3@gm.com
+cpf: 12323434512
+senha: senha123
+=====
+nome: teste3
+email: n@.com
+cpf: 12312312311
+senha: sernha123
+=====
+nome: nandasuna
+email: a@.com
+cpf: 12312312315
+senha: senha1
+=====
