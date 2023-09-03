@@ -1,4 +1,6 @@
 import tkinter as tk
+from tkinter import ttk
+from tkcalendar import Calendar
 import tkinter.messagebox
 import tkinter.simpledialog
 from services.cadastro_service import CadastroService
@@ -11,25 +13,44 @@ class LoginScreen:
         self.root = root
         self.app = app
         self.login_frame = tk.Frame(self.root)
+        self.login_frame.configure(width=400, height=600)
         self.login_frame.pack()
 
-        self.cpf_label = tk.Label(self.login_frame, text="CPF:")
-        self.cpf_label.pack()
+        self.app_name_label = tk.Label(self.login_frame, font=('Bold', 30), fg='#fff', bd=0, bg='#158aff',text="PetService")
+        # self.app_name_label.pack()
+        self.app_name_label.place(x=10, y=100)
+
+
+        self.cpf_label = tk.Label(self.login_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff',text="CPF:")
+        # self.cpf_label.pack()
+        self.cpf_label.place(x=10, y=200)
+
 
         self.cpf_entry = tk.Entry(self.login_frame)
-        self.cpf_entry.pack()
+        # self.cpf_entry.pack()
+        self.cpf_entry.place(x=100, y=200, width=150, height=20)
 
-        self.senha_label = tk.Label(self.login_frame, text="Senha:")
-        self.senha_label.pack()
+
+        self.senha_label = tk.Label(self.login_frame, text="Senha:", font=('Bold', 15), fg='#fff', bd=0, bg='#158aff' )
+        # self.senha_label.pack()
+        self.senha_label.place(x=10, y=250)
+
 
         self.senha_entry = tk.Entry(self.login_frame, show="*")
-        self.senha_entry.pack()
+        # self.senha_entry.pack()
+        self.senha_entry.place(x=100, y=250, width=150, height=20)
 
-        self.login_button = tk.Button(self.login_frame, text="Login", command=self.efetuar_login)
-        self.login_button.pack()
 
-        self.cadastrar_button = tk.Button(self.login_frame, text="Cadastrar", command=self.abrir_tela_cadastro)
-        self.cadastrar_button.pack()
+        self.login_button = tk.Button(self.login_frame, text="Login", font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', command=self.efetuar_login)
+        # self.login_button.pack()
+        self.login_button.place(x=10, y=400)
+
+        
+
+        self.cadastrar_button = tk.Button(self.login_frame, text="Cadastrar", font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', command=self.abrir_tela_cadastro)
+        # self.cadastrar_button.pack()
+        self.cadastrar_button.place(x=100, y=400)
+
         self.cadastro_service = CadastroService()
 
     def efetuar_login(self):
@@ -56,37 +77,60 @@ class CadastroScreen:
         self.root = root
         self.app = app
 
+
         self.cadastro_frame = tk.Frame(self.root)
+        self.cadastro_frame.configure(width=400, height=600)
         self.cadastro_frame.pack()
 
-        self.nome_label = tk.Label(self.cadastro_frame, text="Nome:")
-        self.nome_label.pack()
+        self.app_name_label = tk.Label(self.cadastro_frame, font=('Bold', 30), fg='#fff', bd=0, bg='#158aff',text="PetService")
+        # self.app_name_label.pack()
+        self.app_name_label.place(x=10, y=100)
+
+
+        self.nome_label = tk.Label(self.cadastro_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', text="Nome:")
+        self.nome_label.place(x=10, y=200)
+
+        # self.nome_label.pack()
         self.nome_entry = tk.Entry(self.cadastro_frame)
-        self.nome_entry.pack()
+        self.nome_entry.place(x=100, y=200)
 
-        self.cpf_label = tk.Label(self.cadastro_frame, text="CPF:")
-        self.cpf_label.pack()
+        # self.nome_entry.pack()
+
+        self.cpf_label = tk.Label(self.cadastro_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', text="CPF:")
+        self.cpf_label.place(x=10, y=250)
+        # self.cpf_label.pack()
+        
         self.cpf_entry = tk.Entry(self.cadastro_frame)
-        self.cpf_entry.pack()
+        self.cpf_entry.place(x=100, y=250)
+        # self.cpf_entry.pack()
 
-        self.senha_label = tk.Label(self.cadastro_frame, text="Senha:")
-        self.senha_label.pack()
+        self.senha_label = tk.Label(self.cadastro_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', text="Senha:")
+        self.senha_label.place(x=10, y=300)
+        # self.senha_label.pack()
+        
         self.senha_entry = tk.Entry(self.cadastro_frame)
-        self.senha_entry.pack()
+        self.senha_entry.place(x=100, y=300)
+        # self.senha_entry.pack()
 
-        self.email_label = tk.Label(self.cadastro_frame, text="Email:")
-        self.email_label.pack()
+        self.email_label = tk.Label(self.cadastro_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', text="Email:")
+        self.email_label.place(x=10, y=400)
+        # self.email_label.pack()
+        
         self.email_entry = tk.Entry(self.cadastro_frame)
-        self.email_entry.pack()
+        self.email_entry.place(x=100, y=400)
+        # self.email_entry.pack()
 
-        self.confirmar_cadastro_button = tk.Button(self.cadastro_frame, text="Confirmar Cadastro", command=self.confirmar_cadastro)
-        self.confirmar_cadastro_button.pack()
+        self.confirmar_cadastro_button = tk.Button(self.cadastro_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', text="Confirmar Cadastro", command=self.confirmar_cadastro)
+        self.confirmar_cadastro_button.place(x=10, y=450)
+        # self.confirmar_cadastro_button.pack()
 
-        self.voltar_para_login_button = tk.Button(self.cadastro_frame, text="<- Voltar", command=self.voltar_para_login)
-        self.voltar_para_login_button.pack()
+        self.voltar_para_login_button = tk.Button(self.cadastro_frame, font=('Bold', 15), fg='#fff', bd=0, bg='#158aff', text="<- Voltar", command=self.voltar_para_login)
+        self.voltar_para_login_button.place(x=200, y=450)
+        # self.voltar_para_login_button.pack()
             
     def voltar_para_login(self):
-        LoginScreen(self.login_frame, self)
+        self.cadastro_frame.destroy()
+        LoginScreen(self.root, self.app)
 
     def confirmar_cadastro(self):
         nome = self.nome_entry.get()
@@ -98,7 +142,7 @@ class CadastroScreen:
         if cadastro_service.salvar_cadastro(nome, email, senha, cpf):
             tkinter.messagebox.showinfo("Sucesso", "Cadastro realizado com sucesso!")
             self.cadastro_frame.destroy()
-            LoginScreen(self.login_frame, self)
+            LoginScreen(self.root, self.app)
         else:
             tkinter.messagebox.showerror("Erro", "Por favor, preencha todos os campos corretamente.")
 
@@ -118,7 +162,7 @@ class HomeScreen:
 
 
         def servico_page():
-            servicos_text = self.servicos_services.servicos.listar_servicos()  # Use a função para listar os serviços
+            servicos_text = self.servicos_services.listar_servicos()  # Use a função para listar os serviços
             
             servicos_frame = tk.Frame(self.main_frame)  # Crie um frame para os cards de serviços
             servicos_frame.pack(fill=tk.BOTH, expand=True)
@@ -165,26 +209,35 @@ class HomeScreen:
             cpf = perfil_info['cpf']
             senha = perfil_info['senha']
 
-            self.nome_label = tk.Label(perfil_frame, text=f"Nome: {nome}")
-            self.nome_label.pack()
+            self.nome_label = tk.Label(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Nome: {nome}")
+            # self.nome_label.pack()
 
-            self.email_label = tk.Label(perfil_frame, text=f"Email: {email}")
-            self.email_label.pack()
+            self.email_label = tk.Label(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Email: {email}")
+            # self.email_label.pack()
 
-            self.cpf_label = tk.Label(perfil_frame, text=f"CPF: {cpf}")
-            self.cpf_label.pack()
+            self.cpf_label = tk.Label(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text=f"CPF: {cpf}")
+            # self.cpf_label.pack()
 
-            self.senha_label = tk.Label(perfil_frame, text=f"Senha: {senha}")
-            self.senha_label.pack()
+            self.senha_label = tk.Label(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Senha: {senha}")
+            # self.senha_label.pack()
 
-            self.editar_button = tk.Button(perfil_frame, text="Editar", command=lambda:self.abrir_popup_editar_perfil(cpf, nome, email, senha))
-            self.editar_button.pack()
+            self.editar_button = tk.Button(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text="Editar", command=lambda:self.abrir_popup_editar_perfil(cpf, nome, email, senha))
+            # self.editar_button.pack()
 
-            self.deletar_button = tk.Button(perfil_frame, text="Deletar", command=self.deletar_perfil)
-            self.deletar_button.pack()
+            self.deletar_button = tk.Button(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text="Deletar", command=self.deletar_perfil)
+            # self.deletar_button.pack()
 
-            self.logout_button = tk.Button(perfil_frame, text="Logout", command=self.logout)
-            self.logout_button.pack()
+            self.logout_button = tk.Button(perfil_frame, font=(12), fg='#fff', bd=0, bg='#158aff', text="Logout", command=self.logout)
+            # self.logout_button.pack()
+
+                    # Organize os elementos usando o grid manager
+            self.nome_label.grid(row=0, column=0, padx=5, pady=5)
+            self.email_label.grid(row=1, column=0, padx=5, pady=5)
+            self.cpf_label.grid(row=2, column=0, padx=5, pady=5)
+            self.editar_button.grid(row=3, column=0, padx=5, pady=5)
+            self.deletar_button.grid(row=3, column=1, padx=5, pady=5)
+            self.logout_button.grid(row=3, column=2, padx=5, pady=5)
+
 
         def agendamentos_page():
             agendamentos_text = self.servicos_agendamento.listar_agendamentos()  # Use a função para listar os serviços
@@ -204,7 +257,7 @@ class HomeScreen:
             self.frame_inside_canvas = tk.Frame(canvas)
             canvas.create_window((0, 0), window=self.frame_inside_canvas, anchor="nw")
 
-            criar_agendamento_btn = tk.Button(self.frame_inside_canvas, text="Criar Serviço", font=('Bold', 15), fg='#158aff', bd=0, bg='#c3c3c3', command=self.abrir_popup_criar_agendamento)
+            criar_agendamento_btn = tk.Button(self.frame_inside_canvas, text="Criar Agendamento", font=('Bold', 15), fg='#158aff', bd=0, bg='#c3c3c3', command=self.abrir_popup_criar_agendamento)
             criar_agendamento_btn.pack(side=tk.TOP, pady=10)
 
 
@@ -230,7 +283,6 @@ class HomeScreen:
         def hide_indicators():
             home_indicator.config(bg='#c3c3c3')
             menu_indicator.config(bg='#c3c3c3')
-            contact_indicator.config(bg='#c3c3c3')
             about_indicator.config(bg='#c3c3c3')
 
         def indicate(lb, page):
@@ -248,11 +300,6 @@ class HomeScreen:
         menu_btn.place(x=10, y=100)
         menu_indicator = tk.Label(self.options_frame, text='', bg='#c3c3c3')
         menu_indicator.place(x=3, y=100, width=5, height=40)
-
-        contact_btn = tk.Button(self.options_frame, text="Clientes", font=('Bold', 15), fg='#158aff', bd=0, bg='#c3c3c3', command=lambda: indicate(contact_indicator, servico_page))
-        contact_btn.place(x=10, y=150)
-        contact_indicator = tk.Label(self.options_frame, text='', bg='#c3c3c3')
-        contact_indicator.place(x=3, y=150, width=5, height=40)
         
         about_btn = tk.Button(self.options_frame, text="Perfil", font=('Bold', 15), fg='#158aff', bd=0, bg='#c3c3c3', command=lambda: indicate(about_indicator, perfil_page))
         about_btn.place(x=10, y=200)
@@ -298,7 +345,7 @@ class HomeScreen:
             tkinter.messagebox.showerror("Erro", "Não foi possivel cadastrar esse serviço, verifique os dados.")
 
     def criar_card_servico(self, servico_text, servicos_frame):
-        servico_frame = tk.Frame(servicos_frame, borderwidth=2, relief="solid")
+        servico_frame = tk.Frame(servicos_frame, borderwidth=0, relief="solid", bg='#158aff')
         
         # Extrair informações do texto do serviço
         lines = servico_text.split("\n")
@@ -306,19 +353,19 @@ class HomeScreen:
         preco = lines[1].split(": ")[1]
         tempo = lines[2].split(": ")[1]
 
-        nome_label = tk.Label(servico_frame, text=f"Nome: {nome}") 
-        preco_label = tk.Label(servico_frame, text=f"Preço: R${preco}")
-        tempo_label = tk.Label(servico_frame, text=f"Tempo: {tempo}")
+        nome_label = tk.Label(servico_frame,  font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Nome: {nome}") 
+        preco_label = tk.Label(servico_frame,  font=(12), fg='#fff', bd=0, bg='#158aff',  text=f"Preço: R${preco}")
+        tempo_label = tk.Label(servico_frame,  font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Tempo: {tempo}")
 
-        editar_btn = tk.Button(servico_frame, text="Editar", command=lambda: self.abrir_popup_editar_servico(nome, preco, tempo))
-        excluir_btn = tk.Button(servico_frame, text="Excluir", command=lambda: self.excluir_servico(nome))
+        editar_btn = tk.Button(servico_frame, text="Editar", font=(12), fg='#158aff', bd=0, bg='#fff', command=lambda: self.abrir_popup_editar_servico(nome, preco, tempo))
+        excluir_btn = tk.Button(servico_frame, text="Excluir", font=(12), fg='#158aff', bd=0, bg='#fff', command=lambda: self.excluir_servico(nome))
 
         # Organize os elementos usando o grid manager
         nome_label.grid(row=0, column=0, padx=5, pady=5)
-        preco_label.grid(row=0, column=1, padx=5, pady=5)
-        tempo_label.grid(row=0, column=2, padx=5, pady=5)
-        editar_btn.grid(row=1, column=0, padx=5, pady=5)
-        excluir_btn.grid(row=1, column=1, padx=5, pady=5)
+        preco_label.grid(row=1, column=0, padx=5, pady=5)
+        tempo_label.grid(row=2, column=0, padx=5, pady=5)
+        editar_btn.grid(row=3, column=4, padx=5, pady=5)
+        excluir_btn.grid(row=3, column=5, padx=5, pady=5)
 
         self.servico_cards.append(servico_frame)  # Adicione o card à lista
         return servico_frame
@@ -443,101 +490,120 @@ class HomeScreen:
     # Funções Agendamento
     def abrir_popup_criar_agendamento(self):
         popup = tk.Toplevel(self.root)
-        popup.title("Criar Novo Serviço")
+        popup.title("Criar Novo Agendamento")
 
-        nome_label = tk.Label(popup, text="Nome do Serviço:")
-        nome_label.pack()
-        nome_entry = tk.Entry(popup)
-        nome_entry.pack()
+        lista_services = self.servicos_services.listar_nomes()
 
-        preco_label = tk.Label(popup, text="Custo:")
-        preco_label.pack()
-        preco_entry = tk.Entry(popup)
-        preco_entry.pack()
+        nome_service_label = tk.Label(popup, text="Nome do Serviço:")
+        nome_service_label.pack()
+        nome_servico_combo = ttk.Combobox(popup, values=lista_services)
+        nome_servico_combo.pack()
 
-        tempo_label = tk.Label(popup, text="Tempo:")
-        tempo_label.pack()
-        tempo_entry = tk.Entry(popup)
-        tempo_entry.pack()
+        nome_cliente_label = tk.Label(popup, text="Nome do Cliente:")
+        nome_cliente_label.pack()
+        nome_cliente_entry = tk.Entry(popup)
+        nome_cliente_entry.pack()
 
-        confirmar_btn = tk.Button(popup, text="Confirmar", command=lambda: HomeScreen.adicionar_agendamento(self, nome_entry.get(), preco_entry.get(), tempo_entry.get(), popup))
+        tel_cliente_label = tk.Label(popup, text="Telefone do Cliente:")
+        tel_cliente_label.pack()
+        tel_cliente_entry = tk.Entry(popup)
+        tel_cliente_entry.pack()
+
+        data_label = tk.Label(popup, text="Data:")
+        data_label.pack()
+        data_calendar = Calendar(popup, selectmode="day", year=2023, month=8, day=22)
+        data_calendar.pack(padx=10, pady=10)
+
+        # Campo de Hora
+        hora_label = tk.Label(popup, text="Hora:")
+        hora_label.pack()
+        horas = [str(i).zfill(2) for i in range(1, 24)]
+        hora_entry = ttk.Combobox(popup, values=horas)
+        hora_entry.pack(padx=10, pady=10)
+
+
+
+        confirmar_btn = tk.Button(popup, text="Confirmar", command=lambda: HomeScreen.adicionar_agendamento(self, nome_servico_combo.get(), nome_cliente_entry.get(), tel_cliente_entry.get(), data_calendar.get_date(), hora_entry.get(), popup))
         confirmar_btn.pack()
 
-    def adicionar_agendamento(self, nomeServico, preco, tempo, popup):
-        adicionado = self.agendamentos_services.salvar_agendamento(nome=nomeServico, preco=preco, tempo=tempo)
+    def adicionar_agendamento(self, nome_servico_combo, nome_cliente_entry, tel_cliente_entry, data_calendar, hora_entry, popup):
+        adicionado = self.servicos_agendamento.salvar_agendamento(servico=nome_servico_combo ,cliente_nome=nome_cliente_entry, cliente_tel=tel_cliente_entry, data=data_calendar, hora=hora_entry)
         if adicionado:
             tkinter.messagebox.showinfo("Sucesso", "Cadastro realizado com sucesso!")
             popup.destroy()
             self.update_agendamentos_cards()  
         else:
-            tkinter.messagebox.showerror("Erro", "Não foi possivel cadastrar esse serviço, verifique os dados.")
+            tkinter.messagebox.showerror("Erro", "Não foi possivel cadastrar esse agendamento, verifique os dados.")
 
     def criar_card_agendamento(self, agendamento_text, agendamentos_frame):
         agendamento_frame = tk.Frame(agendamentos_frame, borderwidth=2, relief="solid")
         
         # Extrair informações do texto do serviço
         lines = agendamento_text.split("\n")
-        nome = lines[0].split(": ")[1]
-        preco = lines[1].split(": ")[1]
-        tempo = lines[2].split(": ")[1]
+        id = lines[0].split(": ")[1]
+        data = lines[1].split(": ")[1]
+        hora = lines[2].split(": ")[1]
+        serviço = lines[3].split(": ")[1]
+        cliente_nome = lines[4].split(": ")[1]
+        cliente_telefone = lines[5].split(": ")[1]
 
-        nome_label = tk.Label(agendamento_frame, text=f"Nome: {nome}") 
-        preco_label = tk.Label(agendamento_frame, text=f"Preço: R${preco}")
-        tempo_label = tk.Label(agendamento_frame, text=f"Tempo: {tempo}")
 
-        editar_btn = tk.Button(agendamento_frame, text="Editar", command=lambda: self.abrir_popup_editar_agendamento(nome, preco, tempo))
-        excluir_btn = tk.Button(agendamento_frame, text="Excluir", command=lambda: self.excluir_agendamento(nome))
+        cliente_nome_label = tk.Label(agendamento_frame,  font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Nome Cliente: {cliente_nome}")
+        cliente_telefone_label = tk.Label(agendamento_frame,  font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Telefone: {cliente_telefone}") 
+        serviço_label = tk.Label(agendamento_frame,  font=(12), fg='#fff', bd=0, bg='#158aff',  text=f"Serviço: {serviço}")
+        data_label = tk.Label(agendamento_frame,  font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Data: {data}")
+        hora_label = tk.Label(agendamento_frame,  font=(12), fg='#fff', bd=0, bg='#158aff', text=f"Tempo: {hora}")
+
+        editar_btn = tk.Button(agendamento_frame, text="Editar", font=(12), fg='#158aff', bd=0, bg='#fff', command=lambda: self.abrir_popup_editar_agendamento(id=id, cliente_nome=cliente_nome, cliente_telefone=cliente_telefone, data=data, hora=hora, servico=serviço))
+        excluir_btn = tk.Button(agendamento_frame, text="Excluir", font=(12), fg='#158aff', bd=0, bg='#fff', command=lambda: self.excluir_agendamento( id=id, nome=cliente_nome))
 
         # Organize os elementos usando o grid manager
-        nome_label.grid(row=0, column=0, padx=5, pady=5)
-        preco_label.grid(row=0, column=1, padx=5, pady=5)
-        tempo_label.grid(row=0, column=2, padx=5, pady=5)
-        editar_btn.grid(row=1, column=0, padx=5, pady=5)
-        excluir_btn.grid(row=1, column=1, padx=5, pady=5)
+        cliente_nome_label.grid(row=0, column=0, padx=5, pady=5)
+        cliente_telefone_label.grid(row=1, column=0, padx=5, pady=5)
+        serviço_label.grid(row=2, column=0, padx=5, pady=5)
+        data_label.grid(row=3, column=0, padx=5, pady=5)
+        hora_label.grid(row=4, column=0, padx=5, pady=5)
+
+        editar_btn.grid(row=5, column=4, padx=5, pady=5)
+        excluir_btn.grid(row=5, column=5, padx=5, pady=5)
 
         self.agendamento_cards.append(agendamento_frame)  # Adicione o card à lista
         return agendamento_frame
     
-    def abrir_popup_editar_agendamento(self, nome, preco, tempo):
+    def abrir_popup_editar_agendamento(self, id, cliente_nome, cliente_telefone, data, hora, servico):
         popup = tk.Toplevel(self.root)
-        popup.title("Editar Serviço")
+        popup.title("Editar Agendamento")
 
-        nome_label = tk.Label(popup, text="Nome:")
-        nome_label.pack()
-        nome_entry = tk.Entry(popup)
-        nome_entry.insert(0, nome)
-        nome_entry.pack()
 
-        preco_label = tk.Label(popup, text="Preço:")
-        preco_label.pack()
-        preco_entry = tk.Entry(popup)
-        preco_entry.insert(0, preco)
-        preco_entry.pack()
+        cliente_nome_label = tk.Label(popup, text="Nome do Cliente:")
+        cliente_nome_label.pack()
+        cliente_nome_entry = tk.Entry(popup)
+        cliente_nome_entry.insert(0, cliente_nome)
+        cliente_nome_entry.pack()
 
-        tempo_label = tk.Label(popup, text="Tempo:")
-        tempo_label.pack()
-        tempo_entry = tk.Entry(popup)
-        tempo_entry.insert(0, tempo)
-        tempo_entry.pack()
+        cliente_telefone_label = tk.Label(popup, text="Telefone do cliente:")
+        cliente_telefone_label.pack()
+        cliente_telefone_entry = tk.Entry(popup)
+        cliente_telefone_entry.insert(0, cliente_telefone)
+        cliente_telefone_entry.pack()
 
-        confirmar_btn = tk.Button(popup, text="Confirmar", command=lambda: self.editar_agendamento(nome, nome_entry.get(), preco_entry.get(), tempo_entry.get(), popup))
+        confirmar_btn = tk.Button(popup, text="Confirmar", command=lambda: self.editar_agendamento(id=id, cliente_nome=cliente_nome_entry.get(), cliente_telefone=cliente_telefone_entry.get(), data=data, hora=hora, servico=servico, popup=popup))
         confirmar_btn.pack()
 
-    def editar_agendamento(self, nome_antigo, nome_novo, preco_novo, tempo_novo, popup):
-        editado = self.agendamentos_services.atualizar_agendamento(nome_antigo, nome_novo, preco_novo, tempo_novo)
+    def editar_agendamento(self, cliente_nome, cliente_telefone, id, data, hora, servico, popup):
+        editado = self.servicos_agendamento.atualizar_agendamento(id=id, cliente=cliente_nome, telefone=cliente_telefone,data=data, hora=hora, servico=servico)
         if editado:
-            tkinter.messagebox.showinfo("Sucesso", "Serviço editado com sucesso!")
+            tkinter.messagebox.showinfo("Sucesso", "Agendamento editado com sucesso!")
             popup.destroy()
             self.update_agendamentos_cards()
         else:
-            tkinter.messagebox.showerror("Erro", "Não foi possível editar o serviço, verifique os dados.")
+            tkinter.messagebox.showerror("Erro", "Não foi possível editar o agendamento, verifique os dados.")
 
-    def excluir_agendamento(self, nome):
-         if tkinter.messagebox.askyesno("Confirmar Remoção", f"Tem certeza que deseja remover o serviço '{nome}'?"):
-            agendamentos_services = ServicosServices()
-            removido = agendamentos_services.excluir_agendamento(nome)
+    def excluir_agendamento(self, id, nome):
+         if tkinter.messagebox.askyesno("Confirmar Remoção", f"Tem certeza que deseja remover o agendamento '{nome}'?"):
+            removido = self.servicos_agendamento.excluir_agendamento(id)
             if removido:
-                tkinter.messagebox.showinfo("Sucesso", f"O serviço '{nome}' foi removido com sucesso!")
+                tkinter.messagebox.showinfo("Sucesso", f"O agendamento '{nome}' foi removido com sucesso!")
                 self.update_agendamentos_cards()
             else:
                 tkinter.messagebox.showerror("Erro", f"Não foi possível remover o serviço '{nome}'.")
@@ -546,7 +612,7 @@ class HomeScreen:
         for card in self.agendamento_cards:
             card.destroy()  # Remove os cards antigos
 
-        agendamentos_text = self.agendamentos_services.listar_agendamentos()
+        agendamentos_text = self.servicos_agendamento.listar_agendamentos()
 
         for agendamento in agendamentos_text.split("=====\n"):
             if agendamento.strip():

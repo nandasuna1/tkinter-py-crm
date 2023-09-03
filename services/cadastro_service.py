@@ -9,9 +9,11 @@ class CadastroService:
             with open("data/users_data.txt", "a") as file:
                 file.write(f"nome: {nome}\n")
                 file.write(f"email: {email}\n")
-                file.write(f"CPF: {cpf}\n")
+                file.write(f"cpf: {cpf}\n")
                 file.write(f"senha: {senha}\n")
                 file.write("=====\n")  # Delimitador entre registros
+                self.dados = self.formatar_dados(nome_arquivo="data/users_data.txt")
+
             return True
         else:
             return False
@@ -49,11 +51,13 @@ class CadastroService:
         return dados
     
     def login(self, cpf, senha):
-        data = self.formatar_dados("data/users_data.txt")       
-        for data in self.dados:
-            if data.get("cpf") == cpf and data.get("senha") == senha:
-                nome = data.get("nome")
-                email = data.get("email")
+        data = self.formatar_dados("data/users_data.txt")
+        for d in data:
+            nome = d.get("nome")
+            email = d.get("email")
+            d_cpf = d.get("cpf")
+            d_senha = d.get("senha")
+            if d_cpf == cpf and d_senha == senha:
                 with open("data/current_user.txt", "a") as file:
                     file.write(f"nome: {nome}\n")
                     file.write(f"email: {email}\n")
@@ -108,8 +112,6 @@ class CadastroService:
 
     def atualizar_perfil(self, cpf, nome_novo, email_novo, senha_nova):
         if self.usuario_ja_cadastrado(cpf):
-            print(nome_novo, email_novo, senha_nova)
-
             with open("data/users_data.txt", "r") as file:
                 linhas = file.readlines()
 
@@ -130,8 +132,6 @@ class CadastroService:
             if indice_inicio is not None and indice_fim is not None:
                 with open("data/users_data.txt", "w") as file:
                     for i, linha in enumerate(linhas):
-                        print(linha)  # Debug
-                        print(f"Comparando linha: {linha.strip().lower()} com 'nome:'")  # Debug
                         if i < indice_inicio or i > indice_fim:
                             file.write(linha)
                         elif linha.strip().lower().startswith("nome:"):

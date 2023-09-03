@@ -1,8 +1,0 @@
-nome: fer
-email: teste1@gm.com
-cpf: 12312312313
-senha: senha12
-nome: nandasuna
-email: a@.com
-cpf: 12312312315
-senha: senha1

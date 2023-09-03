@@ -43,12 +43,10 @@ class ServicosServices:
         if nome in lista_de_nomes:
             return True
         else:
-            print('e3')
             return False
         
     def validar_dados(self, nome, preco, tempo):
         if not nome or not preco or not tempo:
-            print('e1')
             return False
         else:
             return True
