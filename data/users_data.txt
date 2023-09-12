@@ -1,30 +1,30 @@
+cpf: 12312312313
 nome: Fernanda
 email: teste1@gm.com
-cpf: 12312312313
 senha: senha12
 =====
+cpf: 23423423423
 nome: Mariana
 email: teste2@gm.com
-cpf: 23423423423
 senha: senha123
 =====
+cpf: 12323434512
 nome: nanda
 email: teste3@gm.com
-cpf: 12323434512
 senha: senha123
 =====
+cpf: 12312312311
 nome: teste3
 email: n@.com
-cpf: 12312312311
 senha: sernha123
 =====
+cpf: 12312312315
 nome: nandasuna
 email: a@.com
-cpf: 12312312315
 senha: senha1
 =====
+cpf: 12332122211
 nome: Fernanda
 email: nandateste12@gmail.com
-cpf: 12332122211
 senha: 123123
 =====

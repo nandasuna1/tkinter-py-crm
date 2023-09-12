@@ -1,27 +1,30 @@
-nome: banho e tosa
-custo: 55.00
-tempo: 3 horas
+cpf: 12312312313
+nome: Fernanda
+email: teste1@gm.com
+senha: senha12
 =====
-nome: Odontologia Animal
-Custo: 120.00
-Tempo: 1 hora
+cpf: 23423423423
+nome: Mariana
+email: teste2@gm.com
+senha: senha123
 =====
-nome: Banho
-custo: 12
-tempo: 1
+cpf: 12323434512
+nome: nanda
+email: teste3@gm.com
+senha: senha123
 =====
-nome: s1
-custo: 1
-tempo: 1
+cpf: 12312312311
+nome: teste3
+email: n@.com
+senha: sernha123
 =====
-nome: teste
-custo: 12
-tempo: 2 min
-nome: Tosa
-custo: 30
-tempo: 15 min
+cpf: 12312312315
+nome: nandasuna
+email: a@.com
+senha: senha1
 =====
-nome: Escova
-custo: 30
-tempo: 12 min
+cpf: 12332122211
+nome: Fernanda
+email: nandateste12@gmail.com
+senha: 123123
 =====

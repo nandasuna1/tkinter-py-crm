@@ -7,9 +7,9 @@ class CadastroService:
     def salvar_cadastro(self, nome, email, senha, cpf):
         if not self.usuario_ja_cadastrado(cpf) and self.validar_dados(nome, email, senha, cpf):
             with open("data/users_data.txt", "a") as file:
+                file.write(f"cpf: {cpf}\n")
                 file.write(f"nome: {nome}\n")
                 file.write(f"email: {email}\n")
-                file.write(f"cpf: {cpf}\n")
                 file.write(f"senha: {senha}\n")
                 file.write("=====\n")  # Delimitador entre registros
                 self.dados = self.formatar_dados(nome_arquivo="data/users_data.txt")
@@ -59,9 +59,9 @@ class CadastroService:
             d_senha = d.get("senha")
             if d_cpf == cpf and d_senha == senha:
                 with open("data/current_user.txt", "a") as file:
+                    file.write(f"cpf: {cpf}\n")
                     file.write(f"nome: {nome}\n")
                     file.write(f"email: {email}\n")
-                    file.write(f"cpf: {cpf}\n")
                     file.write(f"senha: {senha}\n")
                 return True
         return False
@@ -83,7 +83,8 @@ class CadastroService:
 
     def deletar_perfil(self):
         user_info = self.current_user_info()
-        cpf_usuario_atual = user_info.get("CPF")
+        cpf_usuario_atual = user_info.get("cpf")
+        print(user_info, cpf_usuario_atual)
 
         with open("data/users_data.txt", "r") as file:
             linhas = file.readlines()
@@ -102,7 +103,7 @@ class CadastroService:
                     break
 
         if indice_inicio is not None and indice_fim is not None:
-            with open("data/servicos_data.txt", "w") as file:
+            with open("data/users_data.txt", "w") as file:
                 for i, linha in enumerate(linhas):
                     if i < indice_inicio or i > indice_fim:
                         file.write(linha)
@@ -134,12 +135,12 @@ class CadastroService:
                     for i, linha in enumerate(linhas):
                         if i < indice_inicio or i > indice_fim:
                             file.write(linha)
+                        elif linha.strip().lower().startswith("cpf:"):
+                            file.write(f"cpf: {cpf}\n".lower())
                         elif linha.strip().lower().startswith("nome:"):
                             file.write(f"nome: {nome_novo}\n".lower())
                         elif linha.strip().lower().startswith("email:"):
                             file.write(f"email: {email_novo}\n".lower())
-                        elif linha.strip().lower().startswith("cpf:"):
-                            file.write(f"cpf: {cpf}\n".lower())
                         elif linha.strip().lower().startswith("senha:"):
                             file.write(f"senha: {senha_nova}\n".lower())
                             file.write("=====\n")  # Delimitador entre registros
